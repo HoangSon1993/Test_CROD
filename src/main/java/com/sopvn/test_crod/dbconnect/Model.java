@@ -9,13 +9,25 @@ package com.sopvn.test_crod.dbconnect;
  * @author Admin
  */
 public class Model {
+
     private String book_id;
     private String book_name;
     private String description;
     private int price;
     private String img;
+
     private String pub_id;
     private String cat_id;
+
+    public Model() {
+        this.book_id = "";
+        this.book_name = book_name;
+        this.description = description;
+        this.price = price;
+        this.img = img;
+        this.pub_id = pub_id;
+        this.cat_id = cat_id;
+    }
 
     public Model(String book_id, String book_name, String description, int price, String img, String pub_id, String cat_id) {
         this.book_id = book_id;
@@ -82,7 +94,5 @@ public class Model {
     public void setCat_id(String cat_id) {
         this.cat_id = cat_id;
     }
-    
-    
-    
+
 }
