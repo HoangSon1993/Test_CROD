@@ -96,22 +96,19 @@ public class ModelRepository {
         }
     }
 
-    public static boolean deleteBook(Connection conn, String selectedBook_id) {
+    public static void deleteBook(Connection conn, String selectedBook_id) {
         String query = "DELETE FROM book WHERE book_id = ?";
         try (PreparedStatement preparedStatement = conn.prepareStatement(query)) {
             preparedStatement.setString(1, selectedBook_id);
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Data deleted successfully");
-                return true;
+                System.out.println("Data deleted successfully");  
             } else {
-                System.out.println("No data deleted.");
-                return false;
+                System.out.println("No data deleted.");    
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
     }
 
     public Model findByBookId(String bookId) {

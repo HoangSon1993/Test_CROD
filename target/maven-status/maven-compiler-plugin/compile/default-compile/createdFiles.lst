@@ -3,4 +3,6 @@ com/sopvn/test_crod/PrimaryController.class
 com/sopvn/test_crod/SecondaryController.class
 module-info.class
 com/sopvn/test_crod/dbconnect/Model.class
+com/sopvn/test_crod/CrudController.class
 com/sopvn/test_crod/App.class
+com/sopvn/test_crod/Crud_editController.class

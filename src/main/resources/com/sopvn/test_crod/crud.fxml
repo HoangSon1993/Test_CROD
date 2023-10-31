@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sopvn.test_crod.CrudController">
+    <children>
+        <TableView fx:id="table" layoutY="38.0" prefHeight="171.0" prefWidth="600.0">
+            <columns>
+                <TableColumn id="book_id" prefWidth="66.4000244140625" text="book_id" />
+                <TableColumn id="book_name" prefWidth="88.79998779296875" text="book_name" />
+                <TableColumn id="description" prefWidth="92.0" text="description" />
+                <TableColumn id="price" prefWidth="87.20001220703125" text="price" />
+                <TableColumn id="img" prefWidth="62.39996337890625" text="img" />
+                <TableColumn id="pub_id" prefWidth="67.20001220703125" text="pub_id" />
+                <TableColumn id="cat_id" prefWidth="66.39996337890625" text="cat_id" />
+                <TableColumn id="edit" prefWidth="108.79998779296875" text="Edit" />
+            </columns>
+        </TableView>
+        <TextField fx:id="book_id1" layoutX="28.0" layoutY="233.0" promptText="book_id" />
+        <TextField fx:id="img1" layoutX="280.0" layoutY="277.0" promptText="img" />
+        <TextField fx:id="price1" layoutX="280.0" layoutY="233.0" promptText="price" />
+        <TextField fx:id="book_name1" layoutX="28.0" layoutY="280.0" promptText="book_name" />
+        <TextField fx:id="pub_id1" layoutX="280.0" layoutY="318.0" promptText="pub_id" />
+        <TextField fx:id="cat_id1" layoutX="280.0" layoutY="354.0" promptText="cat_id" />
+        <TextArea fx:id="description1" layoutX="28.0" layoutY="325.0" prefHeight="58.0" prefWidth="200.0" promptText="description" />
+        <Button fx:id="add" layoutX="460.0" layoutY="345.0" mnemonicParsing="false" onAction="#addButton" prefHeight="43.0" prefWidth="57.0" text="Add" />
+        <Button id="edit" fx:id="add1" layoutX="457.0" layoutY="224.0" mnemonicParsing="false" onAction="#editButton" prefHeight="43.0" prefWidth="57.0" text="Edit" />
+        <Button id="delete" fx:id="add11" layoutX="458.0" layoutY="284.0" mnemonicParsing="false" onAction="#showDeleteConfirmation" prefHeight="43.0" prefWidth="57.0" text="Delete" />
+        <Button id="edit" fx:id="refresh" layoutX="528.0" layoutY="224.0" mnemonicParsing="false" onAction="#refreshData" prefHeight="43.0" prefWidth="57.0" text="Reload" />
+        <Button id="edit" fx:id="clear" layoutX="528.0" layoutY="284.0" mnemonicParsing="false" onAction="#clearForm" prefHeight="43.0" prefWidth="57.0" text="Clear" />
+        <Button id="edit" layoutX="528.0" layoutY="345.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="57.0" text="...." />
+    </children>
+</AnchorPane>
