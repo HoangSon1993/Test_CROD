@@ -25,7 +25,6 @@ import javafx.scene.control.TextField;
  * @author sonly
  */
 public class Crud_editController implements Initializable {
-    
 
     private String selectedBookId = "";
 
@@ -64,12 +63,11 @@ public class Crud_editController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         selectedBookId = CrudController.selectedBook_id;
-        
 
         if (selectedBookId != null && !selectedBookId.isEmpty()) {
             ModelRepository mcr = new ModelRepository();
 
-           Model selectedModel = mcr.findByBookId(selectedBookId);
+            Model selectedModel = mcr.findByBookId(selectedBookId);
             if (selectedModel != null) {
                 book_id1.setText(selectedModel.getBook_id());
                 book_name1.setText(selectedModel.getBook_name());
@@ -78,8 +76,7 @@ public class Crud_editController implements Initializable {
                 pub_id1.setText(selectedModel.getPub_id());
                 cat_id1.setText(selectedModel.getCat_id());
                 img1.setText(selectedModel.getImg());
-                
-                CrudController.modelToUpDate = selectedModel;
+
             }
         } else {
             System.out.println("No book_id selected");
@@ -94,14 +91,15 @@ public class Crud_editController implements Initializable {
         String pub_id = pub_id1.getText();
         String cat_id = cat_id1.getText();
         String img = img1.getText();
-        
-        Model model = new Model(book_id,book_name,description,Integer.parseInt(price) ,img,pub_id,cat_id);
+
+        Model model = new Model(book_id, book_name, description, Integer.parseInt(price), img, pub_id, cat_id);
+        CrudController.modelToUpDate = new Model(book_id, book_name, description, Integer.parseInt(price), img, pub_id, cat_id);
         ModelRepository mcr = new ModelRepository();
         Connection conn = mcr.getConnection();
-        
+
         try {
             ModelRepository.updateBook(conn, model);
-            System.out.println("Data added to the database");
+            System.out.println("Data updated to the database");
             CrudController.loading = false;
             returnCrud();
         } catch (Exception e) {
@@ -109,8 +107,8 @@ public class Crud_editController implements Initializable {
         }
 
     }
-    
-    public void returnCrud () throws  IOException{
+
+    public void returnCrud() throws IOException {
 //        CrudController.selectedBook_id = "";
         App.setRoot("crud");
     }

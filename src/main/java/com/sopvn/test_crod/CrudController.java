@@ -30,6 +30,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author sonly
  */
 public class CrudController implements Initializable {
+
     public static Model modelToUpDate = null;
 
     public static String selectedBook_id = "";
@@ -80,36 +81,38 @@ public class CrudController implements Initializable {
             System.out.println("load 1: load all");
         } else {
 //            ModelRepository mcr = new ModelRepository();
-            
-            for(Model model : ls){
-                if(model.getBook_id().equals(selectedBook_id) ){           
+
+            for (Model model : this.ls) {
+                if (model.getBook_id().equals(modelToUpDate.getBook_id())) {
                     model.setBook_name(modelToUpDate.getBook_name());
                     model.setDescription(modelToUpDate.getDescription());
                     model.setPrice(modelToUpDate.getPrice());
                     model.setImg(modelToUpDate.getImg());
                     model.setPub_id(modelToUpDate.getPub_id());
                     model.setCat_id(modelToUpDate.getCat_id());
-                    
-                    int index = ls.indexOf(model);
-                    table.getItems().set(index, model);
+
+//                    int index = ls.indexOf(model);
+//                    ls.set(index, model);
+                   
                     System.out.println("load 2: load one item");
                     break;
                 }
             }
-            
-//            ObservableList<TableColumn<Model, ?>> cols = table.getColumns();
-//            cols.get(0).setCellValueFactory(new PropertyValueFactory("book_id"));
-//            cols.get(1).setCellValueFactory(new PropertyValueFactory("book_name"));
-//            cols.get(2).setCellValueFactory(new PropertyValueFactory("description"));
-//            cols.get(3).setCellValueFactory(new PropertyValueFactory("price"));
-//            cols.get(4).setCellValueFactory(new PropertyValueFactory("img"));
-//            cols.get(5).setCellValueFactory(new PropertyValueFactory("pub_id"));
-//            cols.get(6).setCellValueFactory(new PropertyValueFactory("cat_id"));
-            table.setItems(ls);
-            
+
+            ObservableList<TableColumn<Model, ?>> cols = table.getColumns();
+            cols.get(0).setCellValueFactory(new PropertyValueFactory("book_id"));
+            cols.get(1).setCellValueFactory(new PropertyValueFactory("book_name"));
+            cols.get(2).setCellValueFactory(new PropertyValueFactory("description"));
+            cols.get(3).setCellValueFactory(new PropertyValueFactory("price"));
+            cols.get(4).setCellValueFactory(new PropertyValueFactory("img"));
+            cols.get(5).setCellValueFactory(new PropertyValueFactory("pub_id"));
+            cols.get(6).setCellValueFactory(new PropertyValueFactory("cat_id"));
+            table.setItems(this.ls);
+            table.refresh();
+
             modelToUpDate = null;
             selectedBook_id = "";
-            loading=true;
+//            loading=true;
         }
 
         table.setOnMouseClicked(event -> {
