@@ -1,8 +1,8 @@
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/PrimaryController.java
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/CrudController.java
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/Crud_editController.java
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/dbconnect/ModelRepository.java
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/module-info.java
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/dbconnect/Model.java
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/SecondaryController.java
-/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/App.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\com\sopvn\test_crod\dbconnect\ModelRepository.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\com\sopvn\test_crod\CrudController.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\com\sopvn\test_crod\dbconnect\Model.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\module-info.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\com\sopvn\test_crod\Crud_editController.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\com\sopvn\test_crod\PrimaryController.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\com\sopvn\test_crod\App.java
+D:\ACCP\JAVA\java_work\Test_CROD\src\main\java\com\sopvn\test_crod\SecondaryController.java
