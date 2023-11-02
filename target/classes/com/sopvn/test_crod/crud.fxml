@@ -13,7 +13,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sopvn.test_crod.CrudController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sopvn.test_crod.CrudController">
     <children>
         <TableView fx:id="table" layoutY="38.0" prefHeight="171.0" prefWidth="600.0">
             <columns>
@@ -39,6 +39,8 @@
         <Button id="delete" fx:id="add11" layoutX="458.0" layoutY="284.0" mnemonicParsing="false" onAction="#showDeleteConfirmation" prefHeight="43.0" prefWidth="57.0" text="Delete" />
         <Button id="edit" fx:id="refresh" layoutX="528.0" layoutY="224.0" mnemonicParsing="false" onAction="#refreshData" prefHeight="43.0" prefWidth="57.0" text="Reload" />
         <Button id="edit" fx:id="clear" layoutX="528.0" layoutY="284.0" mnemonicParsing="false" onAction="#clearForm" prefHeight="43.0" prefWidth="57.0" text="Clear" />
-        <Button id="edit" layoutX="528.0" layoutY="345.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="57.0" text="...." />
+        <Button id="edit" fx:id="btnReload" layoutX="528.0" layoutY="345.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="57.0" text="...." />
+      <TextField fx:id="tf_search" layoutX="41.0" layoutY="2.0" />
+      <Button fx:id="btnSearch" layoutX="209.0" layoutY="2.0" mnemonicParsing="false" text="Search" />
     </children>
 </AnchorPane>

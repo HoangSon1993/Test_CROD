@@ -59,7 +59,30 @@ public class ModelRepository {
         }
         return ls;
     }
-
+     public ObservableList<Model> findbyName(String bookName) {
+       ObservableList<Model> ls1 = FXCollections.observableArrayList();
+        try {
+            //Statement sm = conn.createStatement();
+            String query="select * from book where book_name=?";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1, bookName);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Model item = new Model();
+                item.setBook_id(rs.getString("book_id"));
+                item.setBook_name(rs.getString("book_name"));
+                item.setDescription(rs.getString("description"));
+                item.setPrice(rs.getInt("price"));
+                item.setImg(rs.getString("img"));
+                item.setPub_id(rs.getString("pub_id"));
+                item.setCat_id(rs.getString("cat_id"));
+                ls1.add(item);
+            }
+        } catch (Exception e) {
+            String err = e.getMessage();
+        }
+        return ls1;
+     }
     public static void addBook(Connection conn, Model model) throws SQLException {
         String insertQuery = "INSERT INTO book (book_id, book_name, description, price,img, pub_id, cat_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = conn.prepareStatement(insertQuery)) {

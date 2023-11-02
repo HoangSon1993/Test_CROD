@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -37,7 +38,9 @@ public class CrudController implements Initializable {
     public static boolean loading = true;
     private Connection connection;
     private static ObservableList<Model> ls;
-
+     private static ObservableList<Model> ls1;
+    private Model bookToSearch = null;
+    private String selectedBook_name = "";
     @FXML
     private TableView<Model> table;
     @FXML
@@ -56,6 +59,12 @@ public class CrudController implements Initializable {
     private TextField img1;
     @FXML
     private Button add;
+    @FXML
+    private TextField tf_search;
+    @FXML
+    private Button btnSearch;
+    @FXML
+    private Button btnReload;
     @FXML
     private Button add1;
 
@@ -93,7 +102,6 @@ public class CrudController implements Initializable {
 
 //                    int index = ls.indexOf(model);
 //                    ls.set(index, model);
-                   
                     System.out.println("load 2: load one item");
                     break;
                 }
@@ -133,7 +141,50 @@ public class CrudController implements Initializable {
                 }
             }
         });
+        btnSearch.addEventHandler(ActionEvent.ACTION, eh -> {
+            for (Model model : this.ls) {
+                if (model.getBook_name().contains(tf_search.getText())) {
+                    bookToSearch = model;
+                    System.out.println("Name of book was searched is " + model.getBook_name());
+                    break;
+                }
+            }
+            if (bookToSearch != null) {
+                try {
+                    ModelRepository mr = new ModelRepository();
+                    ls1 = mr.findbyName(bookToSearch.getBook_name());
+                    ObservableList<TableColumn<Model, ?>> cols = table.getColumns();
+                    //cols.get(0).setCellValueFactory(new PropertyValueFactory("book_id"))->> tên phải giống bên book model;
+                    cols.get(0).setCellValueFactory(new PropertyValueFactory("book_id"));
+                    cols.get(1).setCellValueFactory(new PropertyValueFactory("book_name"));
+                    cols.get(2).setCellValueFactory(new PropertyValueFactory("description"));
+                    cols.get(3).setCellValueFactory(new PropertyValueFactory("price"));
+                    cols.get(4).setCellValueFactory(new PropertyValueFactory("img"));
+                    cols.get(5).setCellValueFactory(new PropertyValueFactory("pub_id"));
+                    cols.get(6).setCellValueFactory(new PropertyValueFactory("cat_id"));
+                    table.setItems(ls1);
 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("No book_name selected");
+            }
+        });
+            btnReload.addEventHandler(ActionEvent.ACTION, eh->{
+            ModelRepository br = new ModelRepository();
+            ls = br.findAll();
+            ObservableList<TableColumn<Model, ?>> cols = table.getColumns();
+            //cols.get(0).setCellValueFactory(new PropertyValueFactory("book_id"))->> tên phải giống bên book model;
+            cols.get(0).setCellValueFactory(new PropertyValueFactory("book_id"));
+            cols.get(1).setCellValueFactory(new PropertyValueFactory("book_name"));
+            cols.get(2).setCellValueFactory(new PropertyValueFactory("description"));
+            cols.get(3).setCellValueFactory(new PropertyValueFactory("price"));
+            cols.get(4).setCellValueFactory(new PropertyValueFactory("img"));
+            cols.get(5).setCellValueFactory(new PropertyValueFactory("pub_id"));
+            cols.get(6).setCellValueFactory(new PropertyValueFactory("cat_id"));
+            table.setItems(ls);
+        });
     }
 
     public void addButton() {
