@@ -23,6 +23,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * FXML Controller class
@@ -93,7 +101,6 @@ public class CrudController implements Initializable {
 
 //                    int index = ls.indexOf(model);
 //                    ls.set(index, model);
-                   
                     System.out.println("load 2: load one item");
                     break;
                 }
@@ -214,6 +221,27 @@ public class CrudController implements Initializable {
             // Thêm mã xử lý cho trường hợp người dùng không muốn xoá ở đây
         }
 
+    }
+
+    public void print() throws JRException {
+        ModelRepository mcr = new ModelRepository();
+       Connection connect = mcr.getConnection();
+        try {
+            JasperDesign jDesign = JRXmlLoader.load("/Users/sonly/NetBeansProjects/Test_CROD/src/main/java/com/sopvn/test_crod/report1.jrxml");
+            
+            JasperReport jReport = JasperCompileManager.compileReport(jDesign);
+            
+            JasperPrint jPrint = JasperFillManager.fillReport(jReport, null,connect);
+            
+            JasperViewer viewer = new JasperViewer(jPrint, false);
+            
+            viewer.setTitle("Day la title");
+            viewer.show();
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
