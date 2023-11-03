@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+=======
+com\sopvn\test_crod\Crud_editController.class
+com\sopvn\test_crod\App.class
+module-info.class
+com\sopvn\test_crod\SecondaryController.class
+com\sopvn\test_crod\dbconnect\ModelRepository.class
+com\sopvn\test_crod\PrimaryController.class
+com\sopvn\test_crod\CrudController.class
+com\sopvn\test_crod\dbconnect\Model.class
+>>>>>>> e5789d63ee1f19b5a3de6ba08ca720e73bd0b0dc
