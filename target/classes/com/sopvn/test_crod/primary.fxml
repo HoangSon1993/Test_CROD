@@ -1,16 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sopvn.test_crod.PrimaryController">
-   <children>
-      <Label text="Primary View" />
-      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
-   </children>
+<VBox alignment="CENTER" prefHeight="602.0" prefWidth="700.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sopvn.test_crod.PrimaryController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
+   <children>
+      <TabPane prefHeight="593.0" prefWidth="660.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Truong">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="173.0" layoutY="83.0" text="A Truong them Label" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Tung">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Son">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Tu">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="TU sua 1">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="TU sua 2">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
 </VBox>
